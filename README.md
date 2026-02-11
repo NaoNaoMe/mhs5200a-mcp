@@ -48,7 +48,7 @@ Add the server to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "mhs5200-mcp": {
+    "mhs5200a-mcp": {
       "command": "uvx",
       "args": [
         "mhs5200a-mcp"
