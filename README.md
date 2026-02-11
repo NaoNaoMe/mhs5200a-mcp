@@ -14,7 +14,7 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for co
 
 ## Requirements
 
-- Python >= 3.11
+- Python >= 3.13
 
 
 ## Installation
