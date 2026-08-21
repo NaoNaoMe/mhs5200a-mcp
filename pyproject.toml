@@ -9,7 +9,7 @@ default = true
 
 [project]
 name = "mhs5200a-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP Server for MHS-5200A series signal generators, providing tools for frequency control, waveform generation, and sweeps."
 readme = "README.md"
 license = "MIT"
@@ -38,8 +38,9 @@ classifiers = [
     "Topic :: System :: Hardware :: Hardware Drivers",
 ]
 dependencies = [
-    "fastmcp>=2.14.3",
-    "mcp[cli]>=1.25.0",
+    # Upper bound: mcp 2.0 renamed FastMCP -> MCPServer and moved it to
+    # mcp.server.mcpserver. Lifted once this server migrates to the v2 API.
+    "mcp[cli]>=1.25.0,<2.0.0",
     "mhs5200>=0.1.0",
 ]
 
