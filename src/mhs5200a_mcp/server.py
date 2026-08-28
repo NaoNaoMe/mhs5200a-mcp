@@ -11,9 +11,10 @@ import json
 from typing import Optional, Literal, List, Dict, Any, TypeVar, Callable
 from functools import wraps
 from pathlib import Path
+from importlib.metadata import PackageNotFoundError, version as _pkg_version
 import serial
 from pydantic import BaseModel, Field, field_validator, ConfigDict
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 from mhs5200 import MHS5200, Waveform, SweepMode
 
 
@@ -87,11 +88,17 @@ _state = DeviceState()
 # ============================================================
 # MCP Server Setup
 # ============================================================
-mcp = FastMCP(
+try:
+    _VERSION = _pkg_version("mhs5200a-mcp")
+except PackageNotFoundError:  # running from a source checkout
+    _VERSION = "0.0.0.dev0"
+
+mcp = MCPServer(
     name="mhs5200_mcp",
     instructions="""
 Control MHS-5200A signal generator via serial port. 
 """,
+    version=_VERSION,
 )
 
 # ============================================================

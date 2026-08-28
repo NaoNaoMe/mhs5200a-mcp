@@ -15,6 +15,7 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for co
 ## Requirements
 
 - Python >= 3.13
+- `mcp[cli]` **2.x** (v0.2.0 and later; use `mhs5200a-mcp` 0.1.x if you are pinned to `mcp` 1.x)
 
 
 ## Installation
